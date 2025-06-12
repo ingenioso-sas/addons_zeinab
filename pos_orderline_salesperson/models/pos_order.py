@@ -24,8 +24,9 @@ class PosOrder(models.Model):
 	# 	for line in pos_order["lines"]:
 	# 		employee_id = line[2]["salesperson_id"]		
 	# 		employee = self.env["hr.employee"].search(
-    #             [
-    #                 ("id", "=", employee_id)
+        #             [
+        #
+        #                 ("id", "=", employee_id)
 	# 			]
 	# 		)
 	# 		employee['agent_id']
