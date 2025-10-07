@@ -15,8 +15,11 @@ odoo.define('point_of_sale_screens', function (require) {
             const exist_order_without_salesperson = order.get_orderlines().filter((item)=>{
                 return !Boolean(item.get_salesperson());
             })
-            
-            if (Boolean(this.pos.config.mandatory_salesperson) && exist_order_without_salesperson.length > 0) {
+
+            if (
+                Boolean(this.pos.config.mandatory_salesperson) && 
+                exist_order_without_salesperson.length > 0
+            ) {
                 this.gui.show_popup('error', {
                     'title': _t('Empty salesperson'),
                     'body': _t('All orderline must have the salesperson before it can be validated'),

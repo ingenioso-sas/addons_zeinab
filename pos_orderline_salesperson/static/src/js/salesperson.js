@@ -12,7 +12,7 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
     models.Orderline = models.Orderline.extend({
         initialize: function(attr, options) {
             _super_orderline.initialize.call(this,attr,options);
-            this.salesperson = this.salesperson || "";
+            this.salesperson = this.salesperson || undefined;
             this.salesperson_id = this.salesperson_id || false;
         },
         set_salesperson: function(salesperson){
@@ -21,7 +21,7 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
             this.trigger('change',this);
         },
         remove_salesperson: function(){
-            this.salesperson = "";
+            this.salesperson = undefined;
             this.salesperson_id = false;            
             this.trigger('change',this);
         },

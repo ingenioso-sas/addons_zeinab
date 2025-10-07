@@ -14,14 +14,22 @@
                     <div class="o_setting_right_pane">
                         <label for="allow_orderline_user"/>
                         <div class="text-muted">
-                            Add salesperson to orderlines
+                            Esta opcion permite agregar vendedores asociados en cada linea de orden. Puede crear agentes vendedores en Menu Empleados -> Gestion Comisiones -> Agentes. Recuerde que este agente debe tener asociado un empleado en Pestaña "Información del agente".
+                        </div>
+                        <div class="content-group">
+                            <div class="mt8">
+                                <button name="%(sale_commission.action_agent_form)d" string="Agents list" type="action" class="oe_link" icon="fa-arrow-right"/>
+                            </div>
                         </div>
                         <div class="content-group pos_iot_config" attrs="{'invisible': [('allow_orderline_user', '=', False)]}">
 
                             <div class="row">
                                 <label string="List Allowed Employees" for="employee_salesperson_ids" class="col-lg-4 o_light_label"/>
-                                <field name="employee_salesperson_ids" widget="many2many_tags" 
-                                    domain="[('company_id', '=', company_id),('agent_id.agent_type', '=','salesman')]"  attrs="{'required': [('allow_orderline_user', '=', True)]}" 
+                                <field name="employee_salesperson_ids"
+                                    widget="many2many_tags" 
+                                    options="{'no_create': True}"
+                                    domain="[('company_id', '=', company_id),('agent_id.agent_type', '=','salesman')]"
+                                    attrs="{'required': [('allow_orderline_user', '=', True)]}" 
                                 />
                             </div>
                             <div class="row">
