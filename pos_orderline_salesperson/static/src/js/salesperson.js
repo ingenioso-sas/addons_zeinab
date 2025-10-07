@@ -1,13 +1,13 @@
 odoo.define('pos_orderline_salesperson.salesperson', function (require) {
 "use strict";
 
-    var models = require('point_of_sale.models');
-    var screens = require('point_of_sale.screens');
-    var core = require('web.core');
-    var QWeb = core.qweb;
-    var _t   = core._t;
+    const models = require('point_of_sale.models');
+    const screens = require('point_of_sale.screens');
+    const core = require('web.core');
+    
+    const _t = core._t;
 
-    var _super_orderline = models.Orderline.prototype;
+    const _super_orderline = models.Orderline.prototype;
 
     models.Orderline = models.Orderline.extend({
         initialize: function(attr, options) {
@@ -36,13 +36,13 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
             }
         },
         clone: function(){
-            var orderline = _super_orderline.clone.call(this);
+            const orderline = _super_orderline.clone.call(this);
             orderline.salesperson = this.salesperson;
             orderline.salesperson_id = this.salesperson_id;
             return orderline;
         },
         export_as_JSON: function(){
-            var json = _super_orderline.export_as_JSON.call(this);
+            const json = _super_orderline.export_as_JSON.call(this);
             json.salesperson = this.salesperson;
             json.salesperson_id = this.salesperson_id;
             return json;
@@ -56,14 +56,14 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
 
     screens.OrderWidget.include({
         render_orderline: function(orderline) {
-            var node = this._super(orderline);
-            var salesperson_icon = node.querySelector('.line-salesperson-icon');
+            const node = this._super(orderline);
+            const salesperson_icon = node.querySelector('.line-salesperson-icon');
             if(salesperson_icon){
                 salesperson_icon.addEventListener('click', (function() {
                     this.show_salesperson_popup(orderline);
                 }.bind(this)));
             }
-            var remove_salesperson = node.querySelector('.line-remove-salesperson');
+            const remove_salesperson = node.querySelector('.line-remove-salesperson');
             if(remove_salesperson){
                 remove_salesperson.addEventListener('click', (function() {
                     orderline.remove_salesperson();
@@ -72,7 +72,7 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
             return node;
         },
         show_salesperson_popup: function(orderline){
-            var self = this;
+            const self = this;
             this.pos.gui.show_popup('salespersonpopup',{
                 title: _t('Select Salesperson'),
                 salespersons: self.pos.employees_salesperson,
@@ -82,10 +82,10 @@ odoo.define('pos_orderline_salesperson.salesperson', function (require) {
         },
     });
 
-    var OrderlineSalespersonButton = screens.ActionButtonWidget.extend({
+    const OrderlineSalespersonButton = screens.ActionButtonWidget.extend({
         template: 'OrderlineSalespersonButton',
         button_click: function(){
-            var self = this;
+            const self = this;
             this.pos.gui.show_popup('salespersonpopup',{
                 title: _t('Select Salesperson'),
                 salespersons: self.pos.employees_salesperson,

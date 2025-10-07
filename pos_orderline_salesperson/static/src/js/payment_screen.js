@@ -1,26 +1,19 @@
 odoo.define('point_of_sale_screens', function (require) {
     "use strict";
 
-    var screens = require('point_of_sale.screens');
-    var core = require('web.core');
-    var utils = require('web.utils');
+    const screens = require('point_of_sale.screens');
+    const core = require('web.core');
+    
 
-    var _t = core._t;
+    const _t = core._t;
 
     screens.PaymentScreenWidget.include({
 
         order_is_valid_salesperson: function () {
-            var self = this;
-            var order = this.pos.get_order();
-            if(
-                ! Boolean(this.pos.config.allow_orderline_user) ||
-                ! Boolean(this.pos.config.employee_salesperson_ids?.length > 0)
-            ) {
-                return true;
-            }
-
-            var exist_order_without_salesperson = order.get_orderlines().filter((item)=>{
-                return !Boolean(item?.get_salesperson());
+            const self = this;
+            const order = this.pos.get_order();
+            const exist_order_without_salesperson = order.get_orderlines().filter((item)=>{
+                return !Boolean(item.get_salesperson());
             })
 
             if (

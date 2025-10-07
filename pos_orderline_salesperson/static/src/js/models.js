@@ -1,8 +1,8 @@
 odoo.define('pos_orderline_selesperson.employees_salesperson', function (require) {
     "use strict";
 
-var models = require('point_of_sale.models');
-var rpc = require('web.rpc');
+const models = require('point_of_sale.models');
+
 
 models.load_models([{
     model:  'hr.employee',
