@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 {
     'name': 'POS Orderline Salesperson',
     'version': '13.0.1.2.1',
@@ -11,7 +11,7 @@
         'security/ir.model.access.csv',
         'views/pos_config_views.xml',
         'views/pos_template.xml',
-        'views/pos_order_views.xml',
+        'views/pos_order_views.xml'
     ],
     'qweb': [
         'static/src/xml/salesperson_popup.xml',
