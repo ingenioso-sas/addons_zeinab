@@ -14,7 +14,8 @@ class PosOrderReport(models.Model):
     def _select(self):
         query = super(PosOrderReport, self)._select() + """,
             pole.agent_id AS agent_id,
-            SUM(pole.amount / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END)  AS commission_total
+            SUM(pole.amount / CASE COALESCE(s.currency_rate, 0)
+                WHEN 0 THEN 1.0 ELSE s.currency_rate END)  AS commission_total
         """
         return query
 
