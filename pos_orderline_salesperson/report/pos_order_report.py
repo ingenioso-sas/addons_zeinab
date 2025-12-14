@@ -17,7 +17,7 @@ class PosOrderReport(models.Model):
             SUM(pole.amount / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END)  AS commission_total
         """
         return query
-    
+
     def _from(self):
         query = super(PosOrderReport, self)._from() + """
             LEFT JOIN pos_order_line_agent pole ON (pole.object_id=l.id)
