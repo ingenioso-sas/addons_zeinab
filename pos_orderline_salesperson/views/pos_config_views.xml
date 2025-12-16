@@ -36,7 +36,7 @@
                                 <field name="employee_salesperson_ids"
                                     widget="many2many_tags" 
                                     options="{'no_create': True}"
-                                    domain="[('company_id', '=', company_id),('agent_id.agent_type', '=','salesman')]"
+                                    domain="[('company_id', '=', company_id),('agent_ids.agent_type', '=','salesman')]"
                                     attrs="{'required': [('allow_orderline_user', '=', True)]}" 
                                 />
                             </div>
