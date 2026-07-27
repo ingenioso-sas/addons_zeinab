@@ -17,6 +17,7 @@ odoo.define('point_of_sale_screens', function (require) {
             })
 
             if (
+                Boolean(this.pos.config.allow_orderline_user) &&
                 Boolean(this.pos.config.mandatory_salesperson) && 
                 exist_order_without_salesperson.length > 0
             ) {

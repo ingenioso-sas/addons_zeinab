@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 {
     'name': 'POS Orderline Salesperson',
-    'version': '13.0.1.2.2',
+    'version': '13.0.1.2.3',
     'summary': 'POS Orderline Salesperson',
     'category': 'Sales/Point Of Sale',
     'author': 'Zeinab Abdelmonem, Ingenioso CO',
