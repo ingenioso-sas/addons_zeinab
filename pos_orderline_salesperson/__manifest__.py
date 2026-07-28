@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 {
     'name': 'POS Orderline Salesperson',
     'version': '13.0.1.2.3',
